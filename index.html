@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hurricane Map</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .dashboard-heading {
+      text-align: center;
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+    }
+
+    #map {
+      height: 500px;
+      background-color: #f9f9f9;
+    }
+
+    .filter-container {
+      text-align: center;
+      background-color: #f2f2f2;
+      padding: 10px;
+    }
+
+    #description {
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard-heading">
+    <h1>North American Basin Hurricane Analysis Past Decade</h1>
+  </div>
+
+  <div class="filter-container">
+    <label for="yearSelect">Select Year:</label>
+    <select id="yearSelect"></select>
+  </div>
+  <div class="filter-container">
+    <label for="hurricaneSelect">Select Hurricane:</label>
+    <select id="hurricaneSelect"></select>
+  </div>
+
+  <div id="map"></div>
+
+  <div class="container">
+    <h3>Countries Hit Most in the Past Decade</h3>
+    <input type="range" class="custom-range" id="countrySlider">
+    <div id="sliderValue" class="text-center"></div>
+  </div>
+
+  <div id="description">
+    <h2>How to Use the Map:</h2>
+    <p>
+      - Use the "Select Year" dropdown to choose a specific year to analyze hurricanes in that year.
+      <br>
+      - Use the "Select Hurricane" dropdown to choose a specific hurricane name to analyze hurricanes with that name.
+      <br>
+      - The map will display markers representing hurricanes based on your selected filters.
+      <br>
+      - Click on a marker to view detailed information about the hurricane, including the year, name, and country.
+    </p>
+    <p>
+      Note: The data displayed on the map is based on the selected year and hurricane name filters. 
+      You can adjust the filters to analyze different hurricanes in different years.
+    </p>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+  <script src="plot.js"></script>
+</body>
+</html>
