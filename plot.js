@@ -104,30 +104,89 @@ function updateMap() {
 }
 
 
+// function updateAll() {
+//   const yearSelect = document.getElementById('yearSelect');
+//   const hurricaneSelect = document.getElementById('hurricaneSelect');
+
+//   // Set the selected values for the dropdowns to "All"
+//   yearSelect.value = 'All';
+//   hurricaneSelect.value = 'All'
+//   console.log(hurricanes);
+//   if (map && markersLayer) {
+//     markersLayer.clearLayers(); // Clear existing markers
+
+//     hurricanes.forEach(h => {
+//       const year = new Date(h.Datetime).getFullYear();
+//       const name = h.Name;
+//       const country = h.country || 'Unknown';
+
+//       //if (year === selectedYear && (selectedHurricane === 'All' || name === selectedHurricane)) {
+//         L.marker([h.Latitude, h.Longitude])
+//           .bindPopup(`Year: ${year}<br>Name: ${name}<br>Country: ${country}`)
+//           .addTo(markersLayer); // Add the marker to the markersLayer instead of directly to the map
+//       }
+//     //}
+//     );
+//   }
+// }
+
 function updateAll() {
   const yearSelect = document.getElementById('yearSelect');
   const hurricaneSelect = document.getElementById('hurricaneSelect');
 
   // Set the selected values for the dropdowns to "All"
   yearSelect.value = 'All';
-  hurricaneSelect.value = 'All'
-  console.log(hurricanes);
+  hurricaneSelect.value = 'All';
+
   if (map && markersLayer) {
     markersLayer.clearLayers(); // Clear existing markers
 
+    // Group data by hurricane name
+    const hurricanesGrouped = {};
     hurricanes.forEach(h => {
-      const year = new Date(h.Datetime).getFullYear();
       const name = h.Name;
-      const country = h.country || 'Unknown';
-
-      //if (year === selectedYear && (selectedHurricane === 'All' || name === selectedHurricane)) {
-        L.marker([h.Latitude, h.Longitude])
-          .bindPopup(`Year: ${year}<br>Name: ${name}<br>Country: ${country}`)
-          .addTo(markersLayer); // Add the marker to the markersLayer instead of directly to the map
+      if (!hurricanesGrouped[name]) {
+        hurricanesGrouped[name] = [];
       }
-    //}
-    );
+      hurricanesGrouped[name].push(h);
+    });
+
+    // Create lines connecting the points for each hurricane
+    for (const name in hurricanesGrouped) {
+      const hurricaneData = hurricanesGrouped[name];
+      const latLngs = hurricaneData.map(h => [h.Latitude, h.Longitude]);
+      const polyline = L.polyline(latLngs, { color: getRandomColor() }).addTo(map);
+
+      // Add popup to the polyline with detailed information
+      const popupContent = generatePopupContent(hurricaneData);
+      polyline.bindPopup(popupContent);
+    }
   }
 }
 
+// Helper function to generate random colors for each hurricane path
+function getRandomColor() {
+  const letters = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
 
+function generatePopupContent(hurricaneData) {
+  let content = '<div class="popup-content"><b>Hurricane Information:</b><br>';
+  hurricaneData.forEach(h => {
+    const country = h.country || 'Unknown';
+    const name = h.Name;
+    const windSpeed = h.WindSpeed;
+    const airPressure = h.AirPressure;
+    const datetime = new Date(h.Datetime).toLocaleString();
+
+    content += `<b>Country:</b> ${country}<br>`;
+    content += `<b>Hurricane Name:</b> ${name}<br>`;
+  });
+  content += '</div>';
+
+  return content;
+}
