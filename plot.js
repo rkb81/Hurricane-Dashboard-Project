@@ -70,6 +70,39 @@ document.addEventListener('DOMContentLoaded', () => {
 //   }
 // }
 
+// function updateMap() {
+//   const selectedYear = parseInt(yearSelect.value);
+//   const selectedHurricane = hurricaneSelect.value;
+//   const noDataMessage = document.getElementById('noDataMessage');
+
+//   if (map && markersLayer) {
+//     markersLayer.clearLayers(); // Clear existing markers
+
+//     const filteredData = hurricanes.filter(h => {
+//       const year = new Date(h.Datetime).getFullYear();
+//       const name = h.Name;
+//       return year === selectedYear && (selectedHurricane === 'All' || name === selectedHurricane);
+//     });
+
+//     if (filteredData.length === 0) {
+//       // Show the "No data points" message when there are no data points for selected filters
+//       noDataMessage.style.display = 'block';
+//     } else {
+//       noDataMessage.style.display = 'none'; // Hide the message if there are data points
+//     }
+
+//     filteredData.forEach(h => {
+//       const year = new Date(h.Datetime).getFullYear();
+//       const name = h.Name;
+//       const country = h.country || 'Unknown';
+
+//       L.marker([h.Latitude, h.Longitude])
+//         .bindPopup(`Year: ${year}<br>Name: ${name}<br>Country: ${country}`)
+//         .addTo(markersLayer);
+//     });
+//   }
+// }
+
 function updateMap() {
   const selectedYear = parseInt(yearSelect.value);
   const selectedHurricane = hurricaneSelect.value;
@@ -78,17 +111,24 @@ function updateMap() {
   if (map && markersLayer) {
     markersLayer.clearLayers(); // Clear existing markers
 
+    // Check if "All" is selected for both year and hurricane name
+    const isAllSelected = selectedYear === 'All' && selectedHurricane === 'All';
+
     const filteredData = hurricanes.filter(h => {
       const year = new Date(h.Datetime).getFullYear();
       const name = h.Name;
-      return year === selectedYear && (selectedHurricane === 'All' || name === selectedHurricane);
+      return (
+        (isAllSelected && true) || // If both "All" selected, show all data
+        (selectedYear === year && selectedHurricane === 'All') || // Show all hurricanes for a specific year
+        (selectedYear === 'All' && selectedHurricane === name) || // Show all years' hurricanes for a specific hurricane name
+        (selectedYear === year && selectedHurricane === name) // Show specific hurricane for a specific year
+      );
     });
 
     if (filteredData.length === 0) {
-      // Show the "No data points" message when there are no data points for selected filters
       noDataMessage.style.display = 'block';
     } else {
-      noDataMessage.style.display = 'none'; // Hide the message if there are data points
+      noDataMessage.style.display = 'none';
     }
 
     filteredData.forEach(h => {
