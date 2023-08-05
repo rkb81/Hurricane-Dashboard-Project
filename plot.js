@@ -3,6 +3,7 @@ const url = 'http://127.0.0.1:5000/api/v1.0/HurricaneLocationData'; // Replace w
 
 let map;
 let markersLayer;
+let hurricanes;
 
 function initMap() {
   map = L.map('map').setView([19, -99], 5); // Set initial map view
@@ -11,8 +12,8 @@ function initMap() {
 
   const yearSelect = document.getElementById('yearSelect');
   const hurricaneSelect = document.getElementById('hurricaneSelect');
-
-  // Get unique years and hurricane names from the data
+  const allSelect = document.getElementById('allData');
+  
   const years = [...new Set(hurricanes.map(d => new Date(d.Datetime).getFullYear()))];
   const hurricaneNames = [...new Set(hurricanes.map(d => d.Name))];
 
@@ -33,19 +34,84 @@ function initMap() {
 
   yearSelect.addEventListener('change', updateMap);
   hurricaneSelect.addEventListener('change', updateMap);
-
-  updateMap(); // Initially update the map based on the selected filters
+  allSelect.addEventListener('click', updateAll);
+  // hurricaneDropdown.addEventListener('change', updateHurricaneInfo);
+  
+  updateAll(); 
+  
 }
 
-d3.json(url).then(data => {
+
+document.addEventListener('DOMContentLoaded', () => {
+ d3.json(url).then(data => {
   hurricanes = data.data;
+  
   initMap(); // Initialize the map after loading the data
-});
+ });
+ });
+// function updateMap() {
+//   const selectedYear = parseInt(yearSelect.value);
+//   const selectedHurricane = hurricaneSelect.value;
+
+//   if (map && markersLayer) {
+//     markersLayer.clearLayers(); // Clear existing markers
+
+//     hurricanes.forEach(h => {
+//       const year = new Date(h.Datetime).getFullYear();
+//       const name = h.Name;
+//       const country = h.country || 'Unknown';
+
+//       if (year === selectedYear && (selectedHurricane === 'All' || name === selectedHurricane)) {
+//         L.marker([h.Latitude, h.Longitude])
+//           .bindPopup(`Year: ${year}<br>Name: ${name}<br>Country: ${country}`)
+//           .addTo(markersLayer); // Add the marker to the markersLayer instead of directly to the map
+//       }
+//     });
+//   }
+// }
 
 function updateMap() {
   const selectedYear = parseInt(yearSelect.value);
   const selectedHurricane = hurricaneSelect.value;
+  const noDataMessage = document.getElementById('noDataMessage');
 
+  if (map && markersLayer) {
+    markersLayer.clearLayers(); // Clear existing markers
+
+    const filteredData = hurricanes.filter(h => {
+      const year = new Date(h.Datetime).getFullYear();
+      const name = h.Name;
+      return year === selectedYear && (selectedHurricane === 'All' || name === selectedHurricane);
+    });
+
+    if (filteredData.length === 0) {
+      // Show the "No data points" message when there are no data points for selected filters
+      noDataMessage.style.display = 'block';
+    } else {
+      noDataMessage.style.display = 'none'; // Hide the message if there are data points
+    }
+
+    filteredData.forEach(h => {
+      const year = new Date(h.Datetime).getFullYear();
+      const name = h.Name;
+      const country = h.country || 'Unknown';
+
+      L.marker([h.Latitude, h.Longitude])
+        .bindPopup(`Year: ${year}<br>Name: ${name}<br>Country: ${country}`)
+        .addTo(markersLayer);
+    });
+  }
+}
+
+
+function updateAll() {
+  const yearSelect = document.getElementById('yearSelect');
+  const hurricaneSelect = document.getElementById('hurricaneSelect');
+
+  // Set the selected values for the dropdowns to "All"
+  yearSelect.value = 'All';
+  hurricaneSelect.value = 'All'
+  console.log(hurricanes);
   if (map && markersLayer) {
     markersLayer.clearLayers(); // Clear existing markers
 
@@ -54,11 +120,14 @@ function updateMap() {
       const name = h.Name;
       const country = h.country || 'Unknown';
 
-      if (year === selectedYear && (selectedHurricane === 'All' || name === selectedHurricane)) {
+      //if (year === selectedYear && (selectedHurricane === 'All' || name === selectedHurricane)) {
         L.marker([h.Latitude, h.Longitude])
           .bindPopup(`Year: ${year}<br>Name: ${name}<br>Country: ${country}`)
           .addTo(markersLayer); // Add the marker to the markersLayer instead of directly to the map
       }
-    });
+    //}
+    );
   }
 }
+
+
