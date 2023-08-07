@@ -6,7 +6,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
 
 from datetime import datetime, timedelta
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 from flask_cors import CORS
 import geojson
 
@@ -14,7 +14,7 @@ import geojson
 # Database Setup
 #################################################
 
-engine = create_engine("sqlite:///Hurricane-Project-3/Resources/NA_Basin.sqlite")
+engine = create_engine("sqlite:///Resources/NA_Basin.sqlite")
 
 # connecting SQLite DB
 tropical_storm = pd.read_sql("select * from hurricane_table;", engine)
@@ -29,195 +29,49 @@ app = Flask(__name__)
 CORS(app)
 
 #################################################
-# Flask Routes
+# API Routes
 #################################################
 
-def hurricanes1950():
-    tropical_storm1950 = tropical_storm.loc[
-        (tropical_storm.Datetime >= '1950-01-01') &
-        (tropical_storm.Datetime < '1960-01-01') &
-        (tropical_storm.Storm_Category == 'TS')
-    ]
-    tropical_storm1950 = tropical_storm1950[["ID", "Datetime", "Name", "Wind_Speed(knots)", "Air_Pressure(mb)", "Distance_to_Land(km)", "Latitude", "Longitude"]]
+def generate_tropical_storms(year_start, year_end):
+    def tropical_storms():
+        tropical_storm_range = tropical_storm.loc[
+            (tropical_storm.Datetime >= f'{year_start}-01-01') &
+            (tropical_storm.Datetime < f'{year_end}-01-01') &
+            (tropical_storm.Storm_Category == 'TS')
+        ]
+        tropical_storm_range = tropical_storm_range[["ID", "Datetime", "Name", "Wind_Speed(knots)", "Air_Pressure(mb)", "Distance_to_Land(km)", "Latitude", "Longitude"]]
 
-    geojson_features = []
-    for _, row in tropical_storm1950.iterrows():
-        properties = {
-            "ID": row["ID"],
-            "Datetime": row["Datetime"],
-            "Name": row["Name"],
-            "Wind_Speed": row["Wind_Speed(knots)"],
-            "Air_Pressure": row["Air_Pressure(mb)"],
-            "Distance_to_Land": row["Distance_to_Land(km)"]
-        }
-        point = geojson.Point((row["Longitude"], row["Latitude"]))
-        feature = geojson.Feature(geometry=point, properties=properties)
-        geojson_features.append(feature)
+        geojson_features = []
+        for _, row in tropical_storm_range.iterrows():
+            properties = {
+                "ID": row["ID"],
+                "Datetime": row["Datetime"],
+                "Name": row["Name"],
+                "Wind_Speed": row["Wind_Speed(knots)"],
+                "Air_Pressure": row["Air_Pressure(mb)"],
+                "Distance_to_Land": row["Distance_to_Land(km)"]
+            }
+            point = geojson.Point((row["Longitude"], row["Latitude"]))
+            feature = geojson.Feature(geometry=point, properties=properties)
+            geojson_features.append(feature)
 
-    feature_collection1950 = geojson.FeatureCollection(geojson_features)
-    return geojson.dumps(feature_collection1950)
+        feature_collection = geojson.FeatureCollection(geojson_features)
+        return geojson.dumps(feature_collection)
 
-def hurricanes1960():
-    tropical_storm1960 = tropical_storm.loc[
-        (tropical_storm.Datetime >= '1960-01-01') &
-        (tropical_storm.Datetime < '1970-01-01') &
-        (tropical_storm.Storm_Category == 'TS')
-    ]
-    tropical_storm1960 = tropical_storm1960[["ID", "Datetime", "Name", "Wind_Speed(knots)", "Air_Pressure(mb)", "Distance_to_Land(km)", "Latitude", "Longitude"]]
-
-    geojson_features = []
-    for _, row in tropical_storm1960.iterrows():
-        properties = {
-            "ID": row["ID"],
-            "Datetime": row["Datetime"],
-            "Name": row["Name"],
-            "Wind_Speed": row["Wind_Speed(knots)"],
-            "Air_Pressure": row["Air_Pressure(mb)"],
-            "Distance_to_Land": row["Distance_to_Land(km)"]
-        }
-        point = geojson.Point((row["Longitude"], row["Latitude"]))
-        feature = geojson.Feature(geometry=point, properties=properties)
-        geojson_features.append(feature)
-
-    feature_collection1960 = geojson.FeatureCollection(geojson_features)
-    return geojson.dumps(feature_collection1960)
-
-def hurricanes1970():
-    tropical_storm1970 = tropical_storm.loc[
-        (tropical_storm.Datetime >= '1970-01-01') &
-        (tropical_storm.Datetime < '1980-01-01') &
-        (tropical_storm.Storm_Category == 'TS')
-    ]
-    tropical_storm1970 = tropical_storm1970[["ID", "Datetime", "Name", "Wind_Speed(knots)", "Air_Pressure(mb)", "Distance_to_Land(km)", "Latitude", "Longitude"]]
-
-    geojson_features = []
-    for _, row in tropical_storm1970.iterrows():
-        properties = {
-            "ID": row["ID"],
-            "Datetime": row["Datetime"],
-            "Name": row["Name"],
-            "Wind_Speed": row["Wind_Speed(knots)"],
-            "Air_Pressure": row["Air_Pressure(mb)"],
-            "Distance_to_Land": row["Distance_to_Land(km)"]
-        }
-        point = geojson.Point((row["Longitude"], row["Latitude"]))
-        feature = geojson.Feature(geometry=point, properties=properties)
-        geojson_features.append(feature)
-
-    feature_collection1970 = geojson.FeatureCollection(geojson_features)
-    return geojson.dumps(feature_collection1970)
-
-def hurricanes1980():
-    tropical_storm1980 = tropical_storm.loc[
-        (tropical_storm.Datetime >= '1980-01-01') &
-        (tropical_storm.Datetime < '1990-01-01') &
-        (tropical_storm.Storm_Category == 'TS')
-    ]
-    tropical_storm1980 = tropical_storm1980[["ID", "Datetime", "Name", "Wind_Speed(knots)", "Air_Pressure(mb)", "Distance_to_Land(km)", "Latitude", "Longitude"]]
-
-    geojson_features = []
-    for _, row in tropical_storm1980.iterrows():
-        properties = {
-            "ID": row["ID"],
-            "Datetime": row["Datetime"],
-            "Name": row["Name"],
-            "Wind_Speed": row["Wind_Speed(knots)"],
-            "Air_Pressure": row["Air_Pressure(mb)"],
-            "Distance_to_Land": row["Distance_to_Land(km)"]
-        }
-        point = geojson.Point((row["Longitude"], row["Latitude"]))
-        feature = geojson.Feature(geometry=point, properties=properties)
-        geojson_features.append(feature)
-
-    feature_collection1980 = geojson.FeatureCollection(geojson_features)
-    return geojson.dumps(feature_collection1980)
-
-def hurricanes1990():
-    tropical_storm1990 = tropical_storm.loc[
-        (tropical_storm.Datetime >= '1990-01-01') &
-        (tropical_storm.Datetime < '2000-01-01') &
-        (tropical_storm.Storm_Category == 'TS')
-    ]
-    tropical_storm1990 = tropical_storm1990[["ID", "Datetime", "Name", "Wind_Speed(knots)", "Air_Pressure(mb)", "Distance_to_Land(km)", "Latitude", "Longitude"]]
-
-    geojson_features = []
-    for _, row in tropical_storm1990.iterrows():
-        properties = {
-            "ID": row["ID"],
-            "Datetime": row["Datetime"],
-            "Name": row["Name"],
-            "Wind_Speed": row["Wind_Speed(knots)"],
-            "Air_Pressure": row["Air_Pressure(mb)"],
-            "Distance_to_Land": row["Distance_to_Land(km)"]
-        }
-        point = geojson.Point((row["Longitude"], row["Latitude"]))
-        feature = geojson.Feature(geometry=point, properties=properties)
-        geojson_features.append(feature)
-
-    feature_collection1990 = geojson.FeatureCollection(geojson_features)
-    return geojson.dumps(feature_collection1990)
-
-def hurricanes2000():
-    tropical_storm2000 = tropical_storm.loc[
-        (tropical_storm.Datetime >= '2000-01-01') &
-        (tropical_storm.Datetime < '2010-01-01') &
-        (tropical_storm.Storm_Category == 'TS')
-    ]
-    tropical_storm2000 = tropical_storm2000[["ID", "Datetime", "Name", "Wind_Speed(knots)", "Air_Pressure(mb)", "Distance_to_Land(km)", "Latitude", "Longitude"]]
-
-    geojson_features = []
-    for _, row in tropical_storm2000.iterrows():
-        properties = {
-            "ID": row["ID"],
-            "Datetime": row["Datetime"],
-            "Name": row["Name"],
-            "Wind_Speed": row["Wind_Speed(knots)"],
-            "Air_Pressure": row["Air_Pressure(mb)"],
-            "Distance_to_Land": row["Distance_to_Land(km)"]
-        }
-        point = geojson.Point((row["Longitude"], row["Latitude"]))
-        feature = geojson.Feature(geometry=point, properties=properties)
-        geojson_features.append(feature)
-
-    feature_collection2000 = geojson.FeatureCollection(geojson_features)
-    return geojson.dumps(feature_collection2000)
-
-def hurricanes2010():
-    tropical_storm2010 = tropical_storm.loc[
-        (tropical_storm.Datetime >= '2010-01-01') &
-        (tropical_storm.Datetime < '2020-01-01') &
-        (tropical_storm.Storm_Category == 'TS')
-    ]
-    tropical_storm2010 = tropical_storm2010[["ID", "Datetime", "Name", "Wind_Speed(knots)", "Air_Pressure(mb)", "Distance_to_Land(km)", "Latitude", "Longitude"]]
-
-    geojson_features = []
-    for _, row in tropical_storm2010.iterrows():
-        properties = {
-            "ID": row["ID"],
-            "Datetime": row["Datetime"],
-            "Name": row["Name"],
-            "Wind_Speed": row["Wind_Speed(knots)"],
-            "Air_Pressure": row["Air_Pressure(mb)"],
-            "Distance_to_Land": row["Distance_to_Land(km)"]
-        }
-        point = geojson.Point((row["Longitude"], row["Latitude"]))
-        feature = geojson.Feature(geometry=point, properties=properties)
-        geojson_features.append(feature)
-
-    feature_collection2010 = geojson.FeatureCollection(geojson_features)
-    return geojson.dumps(feature_collection2010)
+    return tropical_storms
 
 # Route registration
-app.add_url_rule('/api/ts195059', 'hurricanes1950', hurricanes1950)
-app.add_url_rule('/api/ts196069', 'hurricanes1960', hurricanes1960)
-app.add_url_rule('/api/ts197079', 'hurricanes1970', hurricanes1970)
-app.add_url_rule('/api/ts198089', 'hurricanes1980', hurricanes1980)
-app.add_url_rule('/api/ts199099', 'hurricanes1990', hurricanes1990)
-app.add_url_rule('/api/ts200009', 'hurricanes2000', hurricanes2000)
-app.add_url_rule('/api/ts201019', 'hurricanes2010', hurricanes2010)
+app.add_url_rule('/api/ts195059', 'tropical_storms1950', generate_tropical_storms(1950, 1960))
+app.add_url_rule('/api/ts196069', 'tropical_storms1960', generate_tropical_storms(1960, 1970))
+app.add_url_rule('/api/ts197079', 'tropical_storms1970', generate_tropical_storms(1970, 1980))
+app.add_url_rule('/api/ts198089', 'tropical_storms1980', generate_tropical_storms(1980, 1990))
+app.add_url_rule('/api/ts199099', 'tropical_storms1990', generate_tropical_storms(1990, 2000))
+app.add_url_rule('/api/ts200009', 'tropical_storms2000', generate_tropical_storms(2000, 2010))
+app.add_url_rule('/api/ts201019', 'tropical_storms2010', generate_tropical_storms(2010, 2020))
 
-@app.route('/')
-def landing_page():
+
+@app.route('/api')
+def api_landing_page():
     
     # List all available api routes
     return (
@@ -230,6 +84,21 @@ def landing_page():
         f"/api/ts200009<br/>"
         f"/api/ts201019<br/>"
     )
+
+
+##################################################
+# Front End Routes
+##################################################
+
+@app.route('/')
+def index():
+    return render_template("index.html")
+
+
+@app.route('/tropical_storms')
+def tropical_storms():
+    return render_template("tropical_storms.html") #Display html
+
 
 if __name__ == '__main__':
     app.run(debug=True)
