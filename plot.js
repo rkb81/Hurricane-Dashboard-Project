@@ -64,7 +64,6 @@ function initMap() {
   
 }
 
-
 function updateMap() {
 
   selectedYear = parseInt(yearSelect.value);
@@ -120,7 +119,6 @@ function updateMap() {
   });
 }
 }
-
 // function updateAll() {
 //   const yearSelect = document.getElementById('yearSelect');
 //   const hurricaneSelect = document.getElementById('hurricaneSelect');
@@ -252,10 +250,14 @@ function generatePopupContent(hurricaneData) {
   return content;
 }
 function resetFilters() {
+//   // Reset all filters to default
+//   selectedYear = 'null';
+//   selectedHurricane = 'null';
+//   selectedCountry = 'null';
   // Reset all filters to default
-  selectedYear = 'null';
-  selectedHurricane = 'null';
-  selectedCountry = 'null';
+  selectedYear = 'All';
+  selectedHurricane = 'All';
+  selectedCountry = 'All';
 
   // Set the selected values for the dropdowns to "All"
   yearSelect.value = 'All';
@@ -267,22 +269,25 @@ function resetFilters() {
   defaultPolylines.forEach(polyline => markersLayer.removeLayer(polyline));
   defaultPolylines = [];
 
-  // Re-add the default polylines representing all hurricanes
-  const groupedHurricanes = groupHurricanesByName(hurricanes);
-  for (const name in groupedHurricanes) {
-    const latLngs = groupedHurricanes[name].map(d => [d.Latitude, d.Longitude]);
-    const polyline = L.polyline(latLngs, { color: getRandomColor() })
-      .bindPopup(generatePopupContent(groupedHurricanes[name]));
+  // // Re-add the default polylines representing all hurricanes
+  // const groupedHurricanes = groupHurricanesByName(hurricanes);
+  // for (const name in groupedHurricanes) {
+  //   const latLngs = groupedHurricanes[name].map(d => [d.Latitude, d.Longitude]);
+  //   const polyline = L.polyline(latLngs, { color: getRandomColor() })
+  //     .bindPopup(generatePopupContent(groupedHurricanes[name]));
     
-    defaultPolylines.push(polyline);
-    markersLayer.addLayer(polyline);
-  }
+  //   defaultPolylines.push(polyline);
+  //   markersLayer.addLayer(polyline);
+  // }
+
+  // Call updateAll to display the default map view with all hurricanes
+  updateAll();
   // Hide the "No data" message when filters are reset
   const noDataMessage = document.getElementById('noDataMessage');
   noDataMessage.style.display = 'none';
 
   // Update the map with the reset filters
-  updateMap();
+  //updateMap();
 
 }
 
