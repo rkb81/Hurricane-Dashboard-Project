@@ -84,6 +84,12 @@ def api_landing_page():
         f"/api/ts200009<br/>"
         f"/api/ts201019<br/>"
         f"/api/v1.0/HurricaneCitiesData<br/>" # Huma's city url
+        f"Available Routes:<br/>"  # Dhawanpreet's routes 
+        f"/api/v1.0/HurricaneData<br/>"
+        f"/api/v1.0/SeasononeData<br/>"
+        f"/api/v1.0/SeasontwoData<br/>"
+        f"/api/v1.0/SeasonthreeData<br/>"
+        f"/api/v1.0/SeasonfourData<br/>"
     )
 
 
@@ -109,7 +115,50 @@ def cities():
     response = {"data": json_data}
     return jsonify(response)
 
+#Dhawanpreet's route 
 
+@app.route("/api/v1.0/HurricaneData")
+def passengers():
+ 
+    temp=pd.read_sql("select * from hurricane_table;",con=engine)
+
+    json_data = temp.to_dict(orient="records")
+    response = {"data": json_data}
+    return jsonify(response)
+
+@app.route("/api/v1.0/SeasononeData")
+def Season_one_Data():
+    Season_one=pd.read_sql("select * from hurricane_table where Season==1;",con=engine)
+
+    json_1_data = Season_one.to_dict(orient="records")
+    response1 = {"dataa": json_1_data}
+    return jsonify(response1)
+
+@app.route("/api/v1.0/SeasontwoData")
+def Season_two_Data():
+    Season_two=pd.read_sql("select * from hurricane_table where Season==2;",con=engine)
+
+    json_2_data = Season_two.to_dict(orient="records")
+    response2 = {"dataa": json_2_data}
+    return jsonify(response2)
+
+
+@app.route("/api/v1.0/SeasonthreeData")
+def Season_three_Data():
+    Season_three=pd.read_sql("select * from hurricane_table where Season==3;",con=engine)
+
+    json_3_data = Season_three.to_dict(orient="records")
+    response3= {"dataa": json_3_data}
+    return jsonify(response3)
+
+
+@app.route("/api/v1.0/SeasonfourData")
+def Season_four_Data():
+    Season_four=pd.read_sql("select * from hurricane_table where Season==4;",con=engine)
+
+    json_4_data = Season_four.to_dict(orient="records")
+    response4 = {"dataa": json_4_data}
+    return jsonify(response4)
 
 
 
