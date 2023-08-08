@@ -23,6 +23,8 @@
       height: 800px;
       background-color: #1e4969;
       color: #fff;
+      height: 60vh; /* Set the map height to 75% of the viewport height */
+      width: 100%;
 
     }
 
@@ -56,11 +58,13 @@
     background-color: #4189a1;
     color: #fff;
   }
+
   </style>
+
 </head>
 <body>
   <div class="dashboard-heading">
-    <h1>North American Basin Hurricane Analysis Past Decade</h1>
+    <h1>North American Basin Hurricane Dashboard Past Decade</h1>
   </div>
 
   <div class="filter-container">
@@ -95,6 +99,7 @@
     <select id="hurricaneSelect"></select>
   </div> -->
   <div id="map"></div>
+  
   <div id="noDataMessage" style="display: none; text-align: center; padding: 20px; background-color: #f44336; color: #fff;">
     No data points for selected filter.
   </div>
@@ -102,19 +107,20 @@
   <div id="description">
     <h2>How to Use the Map:</h2>
     <p>
-      - Use the "Select Year" dropdown to choose a specific year to view hurricanes in that year.
+      - Use the "*Select Year" dropdown to choose a specific year to view hurricanes in that year.
       <br>
-      - Use the "Select Hurricane" dropdown to choose a specific hurricane name to analyze hurricanes with that name.
+      - Use the "Select Hurricane" dropdown to choose a specific hurricane name to view hurricanes with that name.
       <br>
       - The map will display markers representing hurricanes based on your selected filters.
       <br>
-      - Use the "All Hurricanes:" button to view all the hurricane paths
+      - Use the "Reset Filters:" button to view all the hurricane paths
       <br>
-      - Click on a marker to view detailed information about the hurricane, including the year, name, and country.
+      - Click on a path to view detailed information about the hurricane, including the year, name, and country.
     </p>
     <p>
       Note: The data displayed on the map is based on the selected year and hurricane name filters. 
       You can adjust the filters to analyze different hurricanes in different years.
+      * = Mandatory selection field
     </p>
   </div>
   <!-- <button id="hurricaneInfoButton">Show Hurricane List</button>
@@ -122,7 +128,7 @@
     <h3>Hurricane List:</h3>
     <ul id="hurricaneInfoList"></ul>
   </div> -->
-
+ 
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <!-- Add the Lodash library -->
