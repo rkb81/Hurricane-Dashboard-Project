@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hurricane Map</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      /* display: flex; */
+    }
+
+    .dashboard-heading {
+      /* flex: 1; */
+      text-align: center;
+      background-color: #85207c;
+      color: #fff;
+      padding: 10px;
+    }
+
+    #map {
+      /* flex: 3; */
+      height: 800px;
+      background-color: #1e4969;
+      color: #fff;
+      height: 60vh; /* Set the map height to 75% of the viewport height */
+      width: 100%;
+
+    }
+
+    .filter-container {
+      /* flex: 1; */
+      text-align: center;
+      background-color: #412360;
+      color: #fff;
+      padding: 10px;
+    }
+    
+    .hurricane-info {
+      /* flex: 1; */
+      text-align: center;
+      background-color: #f2f2f2;
+      color: #000;
+      padding: 10px;
+    }
+
+    #description {
+      /* flex: 3; */
+      text-align: center;
+      padding: 20px;
+      background-color: #3ae28c;
+    }
+
+    
+  #resetFiltersButton {
+    font-size: 18px; 
+    padding: 10px 20px;
+    background-color: #4189a1;
+    color: #fff;
+  }
+
+  </style>
+
+</head>
+<body>
+  <div class="dashboard-heading">
+    <h1>North American Basin Hurricane Dashboard Past Decade</h1>
+  </div>
+
+  <div class="filter-container">
+    <label for="yearSelect">Select Year:</label>
+    <select id="yearSelect">
+      <option value="All">All</option>
+    </select>
+  </div>
+  <div class="filter-container">
+    <label for="hurricaneSelect">Select Hurricane:</label>
+    <select id="hurricaneSelect">
+      <option value="All">All</option>
+    </select>
+  </div>
+  <div class="filter-container">
+    <label for="countrySelect">Select Country:</label>
+    <select id="countrySelect">
+      <option value="All">All</option>
+    </select>
+  </div>
+
+  <button id="resetFiltersButton">Reset Filters</button>
+  <!-- Add the Bootstrap slider
+  <div class="container mt-4">
+    <h3>Country Count Per Hurricane Name</h3>
+    <input type="range" class="form-range" id="hurricaneSlider" min="0">
+    <div class="text-center mt-2">Selected Hurricane Name: <span id="hurricaneName"></span></div>
+  </div> -->
+  <!-- Add a separate list to display information on hurricanes -->
+  <!-- <div class="hurricane-info">
+    <label>Hurricane Information</label>
+    <select id="hurricaneSelect"></select>
+  </div> -->
+  <div id="map"></div>
+  
+  <div id="noDataMessage" style="display: none; text-align: center; padding: 20px; background-color: #f44336; color: #fff;">
+    No data points for selected filter.
+  </div>
+
+  <div id="description">
+    <h2>How to Use the Map:</h2>
+    <p>
+      - Use the "*Select Year" dropdown to choose a specific year to view hurricanes in that year.
+      <br>
+      - Use the "Select Hurricane" dropdown to choose a specific hurricane name to view hurricanes with that name.
+      <br>
+      - The map will display markers representing hurricanes based on your selected filters.
+      <br>
+      - Use the "Reset Filters:" button to view all the hurricane paths
+      <br>
+      - Click on a path to view detailed information about the hurricane, including the year, name, and country.
+    </p>
+    <p>
+      Note: The data displayed on the map is based on the selected year and hurricane name filters. 
+      You can adjust the filters to analyze different hurricanes in different years.
+      * = Mandatory selection field
+    </p>
+  </div>
+  <!-- <button id="hurricaneInfoButton">Show Hurricane List</button>
+  <div id="hurricaneList" style="display: none; text-align: center; padding: 20px; background-color: #f2f2f2; color: #000;">
+    <h3>Hurricane List:</h3>
+    <ul id="hurricaneInfoList"></ul>
+  </div> -->
+ 
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <!-- Add the Lodash library -->
+  <!--script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script-->
+  <script src="plot.js"></script>
+</body>
+</html>
