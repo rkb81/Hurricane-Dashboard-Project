@@ -60,6 +60,60 @@ def generate_tropical_storms(year_start, year_end):
 
     return tropical_storms
 
+#Huma's code
+def cities():
+    temp = pd.read_sql("select * from second_table;", con=engine)
+    json_data = temp.to_dict(orient="records") #Improves JSON file readability
+    response = {"data": json_data}
+    return jsonify(response)
+
+#Deepika's code
+def countries():
+    temp = pd.read_sql("select * from second_table;", con=engine)
+    json_data = temp.to_dict(orient="records") #Improves JSON file readability
+    response = {"data": json_data}
+    return jsonify(response)
+
+#Dhawanpreet's route 
+
+def passengers():
+ 
+    temp=pd.read_sql("select * from hurricane_table;",con=engine)
+
+    json_data = temp.to_dict(orient="records")
+    response = {"data": json_data}
+    return jsonify(response)
+
+def Season_one_Data():
+    Season_one=pd.read_sql("select * from hurricane_table where Season==1;",con=engine)
+
+    json_1_data = Season_one.to_dict(orient="records")
+    response1 = {"dataa": json_1_data}
+    return jsonify(response1)
+
+def Season_two_Data():
+    Season_two=pd.read_sql("select * from hurricane_table where Season==2;",con=engine)
+
+    json_2_data = Season_two.to_dict(orient="records")
+    response2 = {"dataa": json_2_data}
+    return jsonify(response2)
+
+
+def Season_three_Data():
+    Season_three=pd.read_sql("select * from hurricane_table where Season==3;",con=engine)
+
+    json_3_data = Season_three.to_dict(orient="records")
+    response3= {"dataa": json_3_data}
+    return jsonify(response3)
+
+def Season_four_Data():
+    Season_four=pd.read_sql("select * from hurricane_table where Season==4;",con=engine)
+
+    json_4_data = Season_four.to_dict(orient="records")
+    response4 = {"dataa": json_4_data}
+    return jsonify(response4)
+
+
 # Route registration
 app.add_url_rule('/api/ts195059', 'tropical_storms1950', generate_tropical_storms(1950, 1960))
 app.add_url_rule('/api/ts196069', 'tropical_storms1960', generate_tropical_storms(1960, 1970))
@@ -109,56 +163,37 @@ def tropical_storms():
 # Huma's City Route:
 @app.route("/api/v1.0/HurricaneCitiesData")
 def cities():
-  
-    temp = pd.read_sql("select * from second_table;", con=engine)
-    json_data = temp.to_dict(orient="records") #Improves JSON file readability
-    response = {"data": json_data}
-    return jsonify(response)
+  return render_template("index_HA.html") #Display html
+
+# Deepika's data Route:
+@app.route("/api/v1.0/HurricaneLocationData")
+def cities():
+  return render_template("index_DP.html") #Display html
 
 #Dhawanpreet's route 
 
 @app.route("/api/v1.0/HurricaneData")
 def passengers():
- 
-    temp=pd.read_sql("select * from hurricane_table;",con=engine)
+  return render_template("index_DP.html") #Display html
 
-    json_data = temp.to_dict(orient="records")
-    response = {"data": json_data}
-    return jsonify(response)
 
 @app.route("/api/v1.0/SeasononeData")
 def Season_one_Data():
-    Season_one=pd.read_sql("select * from hurricane_table where Season==1;",con=engine)
-
-    json_1_data = Season_one.to_dict(orient="records")
-    response1 = {"dataa": json_1_data}
-    return jsonify(response1)
+   return render_template("index_DP.html") #Display html
 
 @app.route("/api/v1.0/SeasontwoData")
 def Season_two_Data():
-    Season_two=pd.read_sql("select * from hurricane_table where Season==2;",con=engine)
-
-    json_2_data = Season_two.to_dict(orient="records")
-    response2 = {"dataa": json_2_data}
-    return jsonify(response2)
+    return render_template("index_DP.html") #Display html
 
 
 @app.route("/api/v1.0/SeasonthreeData")
 def Season_three_Data():
-    Season_three=pd.read_sql("select * from hurricane_table where Season==3;",con=engine)
-
-    json_3_data = Season_three.to_dict(orient="records")
-    response3= {"dataa": json_3_data}
-    return jsonify(response3)
+  return render_template("index_DP.html") #Display html
 
 
 @app.route("/api/v1.0/SeasonfourData")
 def Season_four_Data():
-    Season_four=pd.read_sql("select * from hurricane_table where Season==4;",con=engine)
-
-    json_4_data = Season_four.to_dict(orient="records")
-    response4 = {"dataa": json_4_data}
-    return jsonify(response4)
+   return render_template("index_DP.html") #Display html
 
 
 
