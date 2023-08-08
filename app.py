@@ -83,6 +83,7 @@ def api_landing_page():
         f"/api/ts199099<br/>"
         f"/api/ts200009<br/>"
         f"/api/ts201019<br/>"
+        f"/api/v1.0/HurricaneCitiesData<br/>" # Huma's city url
     )
 
 
@@ -94,10 +95,22 @@ def api_landing_page():
 def index():
     return render_template("index.html")
 
-
+# Ron's Tropical Storm Route:
 @app.route('/tropical_storms')
 def tropical_storms():
     return render_template("tropical_storms.html") #Display html
+
+# Huma's City Route:
+@app.route("/api/v1.0/HurricaneCitiesData")
+def cities():
+  
+    temp = pd.read_sql("select * from second_table;", con=engine)
+    json_data = temp.to_dict(orient="records") #Improves JSON file readability
+    response = {"data": json_data}
+    return jsonify(response)
+
+
+
 
 
 if __name__ == '__main__':
