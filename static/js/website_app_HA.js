@@ -48,8 +48,8 @@ function mapcreate(SelectedCity) {
                     lon: [longitude],
                     mode: 'markers',
                     marker: {
-                        size: 10,
-                        color: 'blue'
+                        size: 200,
+                         color: 'rgba(0, 0, 255, 0.25)'
                     }
                 };
 
