@@ -1,4 +1,4 @@
-// Define the URL to fetch hurricane data from the API
+//create url variable
 const url = 'http://127.0.0.1:5000/api/v1.0/HurricaneLocationData';
 
 // Global variables for the map and filters
@@ -10,20 +10,21 @@ let selectedHurricane;
 let selectedCountry;
 let defaultPolylines = [];
 
-// Initialize the map and UI elements
+// Initialize the map with a function 
 function initMap() {
-  // Create a Leaflet map with initial view and add a tile layer
+  // Create a Leaflet map with default view and add a tile layer
   map = L.map('map').setView([19, -99], 5);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
   // Create a layer group for markers and add to the map
   markersLayer = L.layerGroup().addTo(map);
 
-  // Create filter dropdowns and reset button
+  // Create filter dropdowns 
   const yearSelect = document.getElementById('yearSelect');
   const hurricaneSelect = document.getElementById('hurricaneSelect');
   const countrySelect = document.getElementById('countrySelect');
   const resetButton = document.createElement('button');
+  //set button variable
   resetButton.textContent = 'Reset Filters';
   resetButton.addEventListener('click', resetFilters);
   document.body.appendChild(resetButton);
@@ -33,7 +34,7 @@ function initMap() {
   selectedHurricane = null;
   selectedCountry = null;
 
-  // Fetch unique years, hurricane names, and countries from data
+  // calculate unique years, hurricane names, and countries from data
   const years = [...new Set(hurricanes.map(d => new Date(d.Datetime).getFullYear()))];
   const hurricaneNames = [...new Set(hurricanes.map(d => d.Name))];
   const countries = [...new Set(hurricanes.map(d => d.country))];
@@ -72,10 +73,11 @@ function initMap() {
 
 // Update the map based on selected filters
 function updateMap() {
-  // Get selected filter values and the "No Data" message element
+  // Get selected filter values 
   selectedYear = parseInt(yearSelect.value);
   selectedHurricane = hurricaneSelect.value;
   selectedCountry = countrySelect.value;
+  // in case there is no data returned, craete a message to say no data points 
   const noDataMessage = document.getElementById('noDataMessage');
 
   // Clear existing markers
