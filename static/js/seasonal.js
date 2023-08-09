@@ -90,7 +90,7 @@ function charts(x) {
             }
         
         let layout = {
-            title: "Frequency of Storm Categories",
+            title: "Frequency of Storm Categories for all Seasons ",
             xaxis: {
             title: "Storm Category",
             },
@@ -181,17 +181,17 @@ const data = [windspeedTrace];
 const datapressure= [airPressureTrace];
 // Define layout options
 const layout1 = {
-    title: 'Average Windspeed for Different Storm Categories',
+    title: 'Average Windspeed VS Storm Categories',
     xaxis: { title: 'Storm Categories' },
-    yaxis: { title: 'Value' },
+    yaxis: { title: 'Value (knots)' },
     paper_bgcolor: 'rgb(240, 256, 254)',
     plot_bgcolor: 'rgb(240, 256, 254)'
 };
 
 const layout2 = {
-    title: 'Average Air Pressure for Different Storm Categories',
+    title: 'Average Air Pressure VS Storm Categories',
     xaxis: { title: 'Storm Categories' },
-    yaxis: { title: 'Value' },
+    yaxis: { title: 'Value(mb)' },
     paper_bgcolor: 'rgb(252, 257, 245)',
     plot_bgcolor: 'rgb(252, 257, 245)'
 };
@@ -238,7 +238,7 @@ function createClusteredBarGraph(samples_url) {
         let layout = {
             title: "Frequency of Storm Categories",
             xaxis: {
-                title: "Storm Category",
+                title: "Categories",
             },
             yaxis: {
                 title: "Frequency",
