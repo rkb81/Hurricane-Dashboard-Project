@@ -167,7 +167,7 @@ def cities():
 
 # Deepika's data Route:
 @app.route("/api/v1.0/HurricaneLocationData")
-def cities():
+def countries():
   return render_template("index_DP.html") #Display html
 
 #Dhawanpreet's route 
