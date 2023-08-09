@@ -188,26 +188,26 @@ def NineteenFiftyTwo():
 
 @app.route("/api/v1.0/HurricaneData")
 def passengers():
-  return render_template("index_DP.html") #Display html
+  return render_template("html_DK") #Display html
 
 
 @app.route("/api/v1.0/SeasononeData")
 def Season_one_Data():
-   return render_template("index_DP.html") #Display html
+   return render_template("html_DK") #Display html
 
 @app.route("/api/v1.0/SeasontwoData")
 def Season_two_Data():
-    return render_template("index_DP.html") #Display html
+    return render_template("html_DK") #Display html
 
 
 @app.route("/api/v1.0/SeasonthreeData")
 def Season_three_Data():
-  return render_template("index_DP.html") #Display html
+  return render_template("html_DK") #Display html
 
 
 @app.route("/api/v1.0/SeasonfourData")
 def Season_four_Data():
-   return render_template("index_DP.html") #Display html
+   return render_template("html_DK") #Display html
 
 
 
