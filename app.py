@@ -145,7 +145,8 @@ def api_landing_page():
         f"/api/ts200009<br/>"
         f"/api/ts201019<br/>"
         f"/api/v1.0/HurricaneCitiesData<br/>" # Huma's city url
-        f"Available Routes:<br/>"  # Dhawanpreet's routes 
+        f"Available Routes:<br/>"  # Dhawanpreet's routes
+        f"127.0.0.1:5000/api/v1.0/HurricaneLocationData<br/>"
         f"/api/v1.0/HurricaneData<br/>"
         f"/api/v1.0/SeasononeData<br/>"
         f"/api/v1.0/SeasontwoData<br/>"
