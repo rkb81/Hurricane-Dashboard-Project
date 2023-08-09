@@ -74,6 +74,13 @@ def countries():
     response = {"data": json_data}
     return jsonify(response)
 
+#Leif's code
+def NineteenFiftyTwo():
+    temp = pd.read_sql("select * from hurricane_table WHERE Datetime BETWEEN '1952-01-01' AND '2022-01-01';", con=engine)
+    json_data = temp.to_dict(orient="records")
+    response = {"data": json_data}
+    return jsonify(response)
+    
 #Dhawanpreet's route 
 
 def passengers():
@@ -169,6 +176,11 @@ def cities():
 @app.route("/api/v1.0/HurricaneLocationData")
 def cities():
   return render_template("index_DP.html") #Display html
+
+#Leif's Route
+@app.route("/api/v1.0/HurricaneLocationData")
+def NineteenFiftyTwo():
+    return render_template("index_LM.html") #Display html
 
 #Dhawanpreet's route 
 
