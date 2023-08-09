@@ -7,6 +7,56 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Individual Hurricanes</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <style>
+    /* Custom styling for the Hurricane Info panel */
+    .custom-panel {
+      width: 500px; /* Adjust the width */
+      height: 1200px; /* Adjust the height */
+      position: absolute;
+      top: 100px; /* Adjust the distance from the top */
+      left: 2px; /* Adjust the distance from the left */
+      background-color: #f8f8f8;
+      border: 1px solid #ddd;
+    }
+    
+    .custom-panel .panel-heading {
+      background-color: #337ab7;
+      color: #fff;
+    }
+    
+    .custom-panel .panel-title {
+      font-size: 18px;
+    }
+    
+    .custom-panel .panel-body {
+      padding: 10px; /* Adjust the padding */
+    }
+  </style>
+  <style>
+    /* Custom styling for the well container */
+    .custom-well {
+      width: 100%; /* Adjust the width */
+      padding: 10px; /* Adjust the padding */
+      border: 1px solid #ccc; /* Adjust the border */
+      border-radius: 4px; /* Adjust the border radius */
+      background-color: #f8f8f8; /* Adjust the background color */
+      color: #333; /* Adjust the text color */
+      position: absolute;
+      top: 0px; /* Adjust the distance from the top */
+      left: 2px; /* Adjust the distance from the left */
+    }
+  </style>
+  <style>
+    /* Custom styling for the scatter graph container */
+    #scatter {
+      width: 300%; /* Adjust the width */
+      max-width: 600px; /* Set a maximum width if desired */
+      margin: 0 auto; /* Center the graph horizontally */
+      position: absolute;
+      top: 100px; /* Adjust the distance from the top */
+      left: 350px; /* Adjust the distance from the left */
+    }
+  </style>
 </head>
 
 <body>
@@ -20,11 +70,11 @@
     </div>
     <div class="row">
       <div class="col-md-2">
-        <div class="well">
+        <div class="well custom-well">
           <h5>Hurricane ID:</h5>
           <select id="selDataset" onchange="optionChanged(this.value)"></select>
         </div>
-        <div class="panel panel-primary">
+        <div class="panel custom-panel">
           <div class="panel-heading">
             <h3 class="panel-title">Hurricane Info</h3>
           </div>
