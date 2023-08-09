@@ -7,14 +7,34 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title></title>
 
-  <!-- Our CSS -->
+  <!-- CSS Alignment and Buttons -->
   <link rel="stylesheet" type="text/css" href="static/css/style.css">
+  <style>
+    .center {
+      text-align: center;
+    }
+    .center h1 {
+      text-align: center;
+    }
+    .button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+  </style>
 </head>
 
 <body>
-  <h1>Hurricane Homepage</h1>
-  <br>
-  <a href="http://127.0.0.1:5000/tropical_storms">Tropical Storm Frequency by Decade</a>
+  <div class="center">
+    <h1>Hurricane Homepage</h1>
+    <br>
+    <button class="button" onclick="window.location.href='http://127.0.0.1:5000//hurricane_seasons'">Season Storm Dashboard</button><br> <!-- Dhawanpreet -->
+    <button class="button" onclick="window.location.href='http://127.0.0.1:5000//hurricane_analysis'">Individual Storm Dashboard</button><br> <!-- Leif -->
+    <button class="button" onclick="window.location.href='http://127.0.0.1:5000//hurricane_cities'">Storm Location(City) Dashboard</button><br> <!-- Huma -->
+    <button class="button" onclick="window.location.href='http://127.0.0.1:5000//hurricane_location'">Storm Location(Country) Dashboard</button><br> <!-- Deepika -->
+    <button class="button" onclick="window.location.href='http://127.0.0.1:5000/tropical_storms'">Tropical Storm Frequency by Decade</button><br> <!-- Ron -->
+  </div>
+
   <!-- D3 JavaScript -->
   <script src="https://d3js.org/d3.v7.min.js"></script>
 

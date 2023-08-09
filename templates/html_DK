@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Hurrican Frequency</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+
+  <div class="container" style="background-color: lightblue;">
+    <div class="row">
+      <div class="col-md-12 jumbotron text-center" style="background-color:lightsteelblue;" >
+        <h1>Hurricane Seasonal Frequency Dashboard</h1>
+        <p>The interactive charts beleow show the graphs for seasonal frequency</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2" >
+        <div class="well" style="background-color:rgb(147, 180, 204);">
+          <h5>Choose a Season</h5>
+          <select id="selDataset" onchange="optionChanged(this.value)"></select>
+        </div>
+        <div class="panel panel-primary" style="background-color:rgb(147, 180, 204);">
+          <div class="panel-heading">
+            <h3 class="panel-title">Seasonal Information</h3>
+          </div>
+          <div id="sample-metadata" class="panel-body">
+          <button onclick="createClusteredBarGraph(samples_url)">Create Clustered Bar Graph</button>
+           
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div id="bar"></div>
+      </div>
+      <div class="col-md-5">
+        <div id="line"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div id="bubble"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div id="extragraph"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script type="text/javascript" src="static/js/seasonal.js"></script>
+  <!-- <script src="./static/js/bonus.js"></script> -->
+  
+</body>
+
+</html>
