@@ -170,7 +170,7 @@ def passengers():
     response = {"data": json_data}
     print("Dhawanpreet's Data")
     print(response)
-    return jsonify(response)  # Display html
+    return jsonify(response)  
 
 # Dhawanpreet's Data Route 2:
 @app.route("/api/v1.0/SeasononeData")
@@ -180,9 +180,7 @@ def Season_one_Data():
 
     json_1_data = Season_one.to_dict(orient="records")
     response1 = {"dataa": json_1_data}
-    print("Dhawanpreet's Data")
-    print(response1)
-    return jsonify(response1)  # Display html
+    return jsonify(response1)  
 
 # Dhawanpreet's Data Route 3:
 @app.route("/api/v1.0/SeasontwoData")
@@ -192,8 +190,6 @@ def Season_two_Data():
 
     json_2_data = Season_two.to_dict(orient="records")
     response2 = {"dataa": json_2_data}
-    print("Dhawanpreet's Data")
-    print(response2)
     return jsonify(response2)
 
 # Dhawanpreet's Data Route 4:
@@ -204,8 +200,6 @@ def Season_three_Data():
 
     json_3_data = Season_three.to_dict(orient="records")
     response3 = {"dataa": json_3_data}
-    print("Dhawanpreet's Data")
-    print(response3)
     return jsonify(response3)
 
 # Dhawanpreet's Data Route 5:
@@ -216,8 +210,6 @@ def Season_four_Data():
 
     json_4_data = Season_four.to_dict(orient="records")
     response4 = {"dataa": json_4_data}
-    print("Dhawanpreet's Data")
-    print(response4)
     return jsonify(response4)
 
 # Dhawanpreet's HTML Route:
