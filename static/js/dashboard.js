@@ -1,6 +1,6 @@
 
 //Get the data from the Flask URL
-const url = "http://127.0.0.1:5000/api/v1.0/HurricaneLocationData";
+const url = "http://127.0.0.1:5000/api/v1.0/HurricaneANalysis";
 //const url = "http://127.0.0.1:5000/api/Storms1952_2022";
 
 //Initial Function

@@ -61,14 +61,14 @@ def generate_tropical_storms(year_start, year_end):
     return tropical_storms
 
 #Huma's code
-def cities():
+def cities_huma():
     temp = pd.read_sql("select * from second_table;", con=engine)
     json_data = temp.to_dict(orient="records") #Improves JSON file readability
     response = {"data": json_data}
     return jsonify(response)
 
 #Deepika's code
-def countries():
+def countries_deepika():
     temp = pd.read_sql("select * from second_table;", con=engine)
     json_data = temp.to_dict(orient="records") #Improves JSON file readability
     response = {"data": json_data}
@@ -145,9 +145,9 @@ def api_landing_page():
         f"/api/ts200009<br/>"
         f"/api/ts201019<br/>"
         f"/api/v1.0/HurricaneCitiesData<br/>" # Huma's city url
-        f"/api/v1.0/HurricaneLocationData<br/>" # Leif's url
+        f"/api/v1.0/HurricaneANalysis<br/>" # Leif's url
+        f"api/v1.0/HurricaneLocationData<br/>"#deepika
         f"Available Routes:<br/>"  # Dhawanpreet's routes
-        f"127.0.0.1:5000/api/v1.0/HurricaneLocationData<br/>"
         f"/api/v1.0/HurricaneData<br/>"
         f"/api/v1.0/SeasononeData<br/>"
         f"/api/v1.0/SeasontwoData<br/>"
@@ -171,16 +171,16 @@ def tropical_storms():
 
 # Huma's City Route:
 @app.route("/api/v1.0/HurricaneCitiesData")
-def cities():
+def cities_route_huma():
   return render_template("index_HA.html") #Display html
 
 # Deepika's data Route:
 @app.route("/api/v1.0/HurricaneLocationData")
-def countries():
+def countries_route_deepika():
   return render_template("index_DP.html") #Display html
 
 #Leif's Route
-@app.route("/api/v1.0/HurricaneLocationData")
+@app.route("/api/v1.0/HurricaneANalysis")
 def NineteenFiftyTwo():
     return render_template("index_LM.html") #Display html
 
