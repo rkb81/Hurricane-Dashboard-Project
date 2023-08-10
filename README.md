@@ -11,10 +11,14 @@ Requirements
 New database and schema: SQLite
 Python Flask API:
 
-   http://127.0.0.1:5000//hurricane_seasons - Season Storm Dashboard (Dhawanpreet)
+    http://127.0.0.1:5000//hurricane_seasons - Season Storm Dashboard (Dhawanpreet)
+    
     http://127.0.0.1:5000//hurricane_analysis - Individual Storm Dashboard (Leif)
+    
     http://127.0.0.1:5000//hurricane_cities - Storm Location(City) Dashboard (Huma)
+    
     http://127.0.0.1:5000//hurricane_location - Storm Location(Country) Dashboard (Deepika)
+    
     http://127.0.0.1:5000/tropical_storms - Tropical Storm Frequency by Decade (Ron)
  
 
