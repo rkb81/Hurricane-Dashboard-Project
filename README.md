@@ -89,6 +89,16 @@ Deepika - Hurricane Impact of Countries
 
 Ron - Tropical Storm Frequency by Decade
 
+Files - tropical_storms.html, tropical_storms.js
+Bonus - turf.js (for buffer creation)
+
+Topic: Does Tropical Storm Frequency increase over time?
+- Created 7 map layers showing the frequency distribution of tropical storms from 1950 to 2019
+- Legend shows wind speed (knots)
+- Each data point displays the name, date, air pressure and wind speed
+- Looking at all the layers we can see that tropical storms are increasing over time
+- A layer showing a 200 km buffer zone around tropical storm point to show the effect of each storm on the surrounding terrain
+
 ![image](https://github.com/rkb81/Hurricane-Project-3/assets/130116747/9aea8d6d-d1f6-4411-a31e-a837d9a2c6a5)
 
 
