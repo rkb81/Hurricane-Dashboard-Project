@@ -26,7 +26,14 @@ Climate Change has been a growing concern to humanity in recent decades.  One of
 - Minimum 100 Lines of Data: Over 500 lines of data
 - 3 Interactive Visuals: Over 6 interactive visuals
 
-Below shows our data plan:
+Group Work Outline:
+Convert Master file to SQLite File - Everyone
+Create Flask App and convert SQLite Database
+Create 5 Objective Questions that is covered by each Group Member - Everyone
+Have approx. 2-3 interactive visuals for each page - Everyone seperately with the subject topic they have 
+
+
+Below, shows our data plan:
 
 
 
@@ -36,8 +43,13 @@ Below shows our data plan:
 
 Note: To view the project workflow please refer to the Hurricane Project - Workflow Diagram.png file in the main directory.
 
+**HURRICANE DASHBOARD**
+
 Dhawanpreet - Seasonality of Hurricanes
 
+Looking at Hurricans and Tropical Storms by Seasons; Winter, Spring, Summer and Fall.
+
+- Creating a dropdown with the seasons where 
 ![image](https://github.com/rkb81/Hurricane-Project-3/assets/130116747/a17f369f-2c25-4019-a691-6606dd0fe9f8)
 
 
