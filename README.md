@@ -32,6 +32,9 @@ Create Flask App and convert SQLite Database
 Create 5 Objective Questions that is covered by each Group Member - Everyone
 Have approx. 2-3 interactive visuals for each page - Everyone seperately with the subject topic they have 
 
+![image](https://github.com/rkb81/Hurricane-Project-3/assets/130116747/7055c7b3-affc-4cab-9e40-09f06fc68cb0)
+
+
 
 Below, shows our data plan:
 
@@ -48,8 +51,8 @@ Note: To view the project workflow please refer to the Hurricane Project - Workf
 Dhawanpreet - Seasonality of Hurricanes
 
 Looking at Hurricans and Tropical Storms by Seasons; Winter, Spring, Summer and Fall.
-
 - Creating a dropdown with the seasons where 
+
 ![image](https://github.com/rkb81/Hurricane-Project-3/assets/130116747/a17f369f-2c25-4019-a691-6606dd0fe9f8)
 
 
