@@ -50,14 +50,21 @@ Note: To view the project workflow please refer to the Hurricane Project - Workf
 
 Dhawanpreet - Seasonality of Hurricanes
 
-Looking at Hurricans and Tropical Storms by Seasons; Winter, Spring, Summer and Fall.
-- Creating a dropdown with the seasons where 
+Looking at Hurricanes and Tropical Storms by Seasons; Winter, Spring, Summer and Fall. Also, creating a dropdown with the seasons where the below gets updated:
+
+Bar Graph: Frequency of Storm for All Season (Storm Category vs. Frequency)
+- Line Graph: Average Windspeed vs. Storm Categories
+- Line Graph: Average Air Pressure vs. Storm Categories
 
 ![image](https://github.com/rkb81/Hurricane-Project-3/assets/130116747/a17f369f-2c25-4019-a691-6606dd0fe9f8)
 
 
 
 Leif - Digital Hurricane Catalogue
+Created a dashboard where the user selects a hurricane where the hurricane path points, wind dpeed, air pressure and storm category is shown on a panel with a line graph that displays the datetime and windspeed for all the data points. 
+Interactive dropdown with hurricane id's updating:
+- Panel Information
+- Line Graph: Wind Speed vs. Datetime
 
 ![image](https://github.com/rkb81/Hurricane-Project-3/assets/130116747/8a820496-089f-4d60-b74d-352be25b5226)
 
