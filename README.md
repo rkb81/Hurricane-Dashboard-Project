@@ -58,6 +58,43 @@ Bar Graph: Frequency of Storm for All Season (Storm Category vs. Frequency)
 
 ![image](https://github.com/rkb81/Hurricane-Project-3/assets/130116747/a17f369f-2c25-4019-a691-6606dd0fe9f8)
 
+**Season one(Winter):**
+
+The  bar graph depicts the frequency of CAT1 and TS storm all other storms did not occur at all 
+The average wind_speed was Cat 1 was 65 and Tropical storm it wasS 52.5 Knots and Air pressure is 991 for cat 1 for TS 999.5 .Here we can see that the averages of tropical storm depicts transition from a tropical storm to a Category 1 storm
+Higher the air pressure means lower the windspeed.
+
+
+![image](https://github.com/rkb81/Hurricane-Project-3/assets/130116747/a17f369f-2c25-4019-a691-6606dd0fe9f8)
+
+
+  **Season two(Spring):**
+  
+ Here the bar graph for frequency of the storms depict that in spring  Tropical storms were the most occurring storms .Cat 1occured 38 times where as cat 2(4) and cat3 (2) are not that signicant
+ The windspeed line graph clearly depicts the rise of windspeed with the cat 2 (87.5 knots ) and cat 5 (average being 110) .Opposite can be seen for the air pressure which is it decrease with the categories leading to more destructive hurricanes 
+
+
+<img width="589" alt="image" src="https://github.com/rkb81/Hurricane-Project-3/assets/130263833/705dc47f-5ee1-46d2-badb-871fb66f4492">
+
+
+ **Season three(Summer) and Season four(Fall):**
+ 
+  Similar pattern can be seen in both the summer and fall season for tropical storms being the most frequent storms. But in season three the tropical storm occurred for 1928 times where as for season 4 this number decrease to 1123.
+
+
+<img width="575" alt="image" src="https://github.com/rkb81/Hurricane-Project-3/assets/130263833/3843cb88-9da9-4820-843d-ee4cb229063f">
+
+
+
+**Clustered Graph ** 
+
+This graph represents all the four seasons for all the decades and shows that Tropical storms were the most frequent storms occuring 1928 times and CAT 5 storm were the leaset in frequency. 
+
+
+<img width="546" alt="image" src="https://github.com/rkb81/Hurricane-Project-3/assets/130263833/176c6bcd-c3d7-486b-9115-e7e65a07075e">
+
+
+
 -------------------------------------------------------------------------------
 
 Leif - Digital Hurricane Catalogue
