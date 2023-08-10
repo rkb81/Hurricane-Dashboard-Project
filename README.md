@@ -81,9 +81,29 @@ Create a map where the user selects a city and the wind speed and location is sh
 
 
 
-Deepika - Hurricane Impact of Countries
+-------------------------------------------------------------------------------
+#Deepika - Hurricane Impact of Countries
 
+Hurricane Map Dashboard
+
+This webpage provides an interactive dashboard for visualizing and exploring hurricane data in the North American Basin over the past decade. The dashboard is built using HTML, CSS, JavaScript, and the Leaflet library for mapping.The code uses Leaflet for mapping, D3.js for data manipulation, and the Fetch API to retrieve hurricane data from a specified API endpoint.
+
+Features of webpage:
+
+Map: The main section of the webpage displays a Leaflet map representing hurricane paths. Users can interact with the map to explore hurricanes by filtering based on year, hurricane name, and country.
+
+Filter Dropdowns: Three filter dropdowns allow users to select specific filters for the displayed hurricanes: year, hurricane name, and country.
+
+Reset Filters Button: Users can reset the applied filters and view all hurricane paths by clicking the "Reset Filters" button.
+
+No Data Message: If the selected filters yield no hurricane data points, a message is displayed to inform the user.
+
+Instructions: A section provides instructions on how to use the map and interact with the filters.
+
+SnapShot of webpage
 ![image](https://github.com/rkb81/Hurricane-Project-3/assets/130116747/1922cd25-2776-4838-ac30-7b2a88765a77)
+
+-------------------------------------------------------------------------------
 
 
 
