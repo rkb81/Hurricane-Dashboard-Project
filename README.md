@@ -72,7 +72,10 @@ There is an interactive dropdown with hurricane id's updating:
 
 
 Huma - Cities Affected by Hurricanes
-Create a map where the user selects a city in the Caribbean and then the user can click on different hurricanes that hit that city
+Create a map where the user selects a city and the wind speed and location is shown for 2010-2020. There is an interactive dropdown with city name that changes:
+
+- Bar Graph: Hurrican Namee vs. Wind Speed
+- Leaflet Map
 
 ![image](https://github.com/rkb81/Hurricane-Project-3/assets/130116747/ecd8c24d-cbec-486f-85e9-3b16c6c22b1f)
 
