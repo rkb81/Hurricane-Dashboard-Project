@@ -61,7 +61,7 @@ Bar Graph: Frequency of Storm for All Season (Storm Category vs. Frequency)
 
 
 Leif - Digital Hurricane Catalogue
-Created a dashboard where the user selects a hurricane and hurricane path points, wind dpeed, air pressure and storm category is shown on a panel with a line graph that displays the datetime and windspeed for all the data points. 
+Created a dashboard where the user selects a hurricane ID and hurricane path points, wind speed, air pressure and storm category is shown on a panel with a line graph that displays the datetime and windspeed for all the data points. 
 
 There is an interactive dropdown with hurricane id's updating:
 - Panel Information
