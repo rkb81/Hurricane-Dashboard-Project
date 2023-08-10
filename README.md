@@ -9,7 +9,19 @@ Climate Change has been a growing concern to humanity in recent decades.  One of
 
 Requirements
 New database and schema: SQLite
-Python Flask API
+Python Flask API:
+
+<body>
+  <div class="center">
+    <h1>Hurricane Homepage</h1>
+    <br>
+    <button class="button" onclick="window.location.href='**http://127.0.0.1:5000//hurricane_seasons**'">Season Storm Dashboard</button><br> <!-- Dhawanpreet -->
+    <button class="button" onclick="window.location.href='**http://127.0.0.1:5000//hurricane_analysis**'">Individual Storm Dashboard</button><br> <!-- Leif -->
+    <button class="button" onclick="window.location.href='**http://127.0.0.1:5000//hurricane_cities**'">Storm Location(City) Dashboard</button><br> <!-- Huma -->
+    <button class="button" onclick="window.location.href='**http://127.0.0.1:5000//hurricane_location**'">Storm Location(Country) Dashboard</button><br> <!-- Deepika -->
+    <button class="button" onclick="window.location.href='**http://127.0.0.1:5000/tropical_storms**'">Tropical Storm Frequency by Decade</button><br> <!-- Ron -->
+  </div>
+
 New JavaScript Library: turf.js library for buffer layer on Ron’s Dashboard
 Minimum 100 Lines of Data
 3 Interactive Visuals
