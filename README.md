@@ -61,6 +61,7 @@ Bar Graph: Frequency of Storm for All Season (Storm Category vs. Frequency)
 -------------------------------------------------------------------------------
 
 Leif - Digital Hurricane Catalogue
+
 Created a dashboard where the user selects a hurricane ID and hurricane path points, wind speed, air pressure and storm category is shown on a panel with a line graph that displays the datetime and windspeed for all the data points. 
 
 There is an interactive dropdown with hurricane id's updating:
@@ -72,6 +73,7 @@ There is an interactive dropdown with hurricane id's updating:
 -------------------------------------------------------------------------------
 
 Huma - Cities Affected by Hurricanes
+
 Create a map where the user selects a city and the wind speed and location is shown for 2010-2020. There is an interactive dropdown with city name that changes:
 
 - Bar Graph: Hurrican Namee vs. Wind Speed
@@ -104,8 +106,6 @@ SnapShot of webpage
 ![image](https://github.com/rkb81/Hurricane-Project-3/assets/130116747/1922cd25-2776-4838-ac30-7b2a88765a77)
 
 -------------------------------------------------------------------------------
-
-
 
 Ron - Tropical Storm Frequency by Decade
 
