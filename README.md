@@ -38,15 +38,30 @@ Note: To view the project workflow please refer to the Hurricane Project - Workf
 
 Dhawanpreet - Seasonality of Hurricanes
 
+![image](https://github.com/rkb81/Hurricane-Project-3/assets/130116747/a17f369f-2c25-4019-a691-6606dd0fe9f8)
+
+
 
 Leif - Digital Hurricane Catalogue
+
+![image](https://github.com/rkb81/Hurricane-Project-3/assets/130116747/8a820496-089f-4d60-b74d-352be25b5226)
+
 
 
 Huma - Cities Affected by Hurricanes
 
+![image](https://github.com/rkb81/Hurricane-Project-3/assets/130116747/ecd8c24d-cbec-486f-85e9-3b16c6c22b1f)
+
+
 
 Deepika - Hurricane Impact of Countries
 
+![image](https://github.com/rkb81/Hurricane-Project-3/assets/130116747/1922cd25-2776-4838-ac30-7b2a88765a77)
+
+
 
 Ron - Tropical Storm Frequency by Decade
+
+![image](https://github.com/rkb81/Hurricane-Project-3/assets/130116747/9aea8d6d-d1f6-4411-a31e-a837d9a2c6a5)
+
 
