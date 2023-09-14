@@ -30,7 +30,7 @@ Group Work Outline:
 Convert Master file to SQLite File - Everyone
 Create Flask App and convert SQLite Database
 Create 5 Objective Questions that is covered by each Group Member - Everyone
-Have approx. 2-3 interactive visuals for each page - Everyone seperately with the subject topic they have 
+Has at least 2 to 3 interactive visuals for each page - Everyone seperately with the subject topic they have 
 
 ![image](https://github.com/rkb81/Hurricane-Project-3/assets/130116747/7055c7b3-affc-4cab-9e40-09f06fc68cb0)
 
