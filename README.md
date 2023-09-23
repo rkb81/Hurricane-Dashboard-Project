@@ -125,10 +125,7 @@ SnapShot of webpage
 ## Tropical Storm Frequency by Decade
 ### Ron Briggs
 
-Files - tropical_storms.html, tropical_storms.js
-Bonus - turf.js (for buffer creation)
-
-Topic: Does Tropical Storm Frequency increase over time?
+Does Tropical Storm Frequency increase over time?
 - Created 7 map layers showing the frequency distribution of tropical storms from 1950 to 2019
 - Legend shows wind speed (knots)
 - Each data point displays the name, date, air pressure and wind speed
