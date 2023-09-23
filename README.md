@@ -1,4 +1,4 @@
-**Hurricane ETL and Visualization Project**
+**Hurricane ETL and Dashboard Project**
 
 **Authors:** Deepika Pitchikala, Leif Munroe, Dhawanpreet Dhaliwal, Huma Alam, Ron Briggs
 
