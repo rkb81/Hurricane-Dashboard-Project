@@ -1,6 +1,7 @@
 # Hurricane ETL and Dashboard Project
+![header image]()
 
-## Authors: Deepika Pitchikala, Leif Munroe, Dhawanpreet Dhaliwal, Huma Alam, Ron Briggs
+## **Authors:** Deepika Pitchikala, Leif Munroe, Dhawanpreet Dhaliwal, Huma Alam, Ron Briggs
 
 ## Table of Contents
 - [Introduction](#Introduction)
