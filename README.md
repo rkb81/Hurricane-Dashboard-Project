@@ -1,5 +1,5 @@
 # Hurricane ETL and Dashboard Project
-![header image]()
+![header image](https://github.com/rkb81/Hurricane-ETL-Dashboard-Project/blob/main/static/dashboard.png)
 
 ## **Authors:** Deepika Pitchikala, Leif Munroe, Dhawanpreet Dhaliwal, Huma Alam, Ron Briggs
 
